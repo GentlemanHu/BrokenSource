@@ -1,12 +1,12 @@
 [submodule "Projects/ShaderFlow"]
 	path = Projects/ShaderFlow
-	url  = https://github.com/BrokenSource/ShaderFlow
+	url  = https://github.com/GentlemanHu/ShaderFlow
 [submodule ".github/.github"]
 	path = .github/special
 	url  = https://github.com/BrokenSource/.github
 [submodule "Projects/DepthFlow"]
 	path = Projects/DepthFlow
-	url  = https://github.com/BrokenSource/DepthFlow
+	url  = https://github.com/GentlemanHu/DepthFlow
 [submodule "Projects/QuadSnap"]
 	path = Projects/Others/QuadSnap
 	url  = https://github.com/BrokenSource/QuadSnap
