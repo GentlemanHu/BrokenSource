@@ -1,0 +1,31 @@
+
+name: Render video
+on:
+  workflow_dispatch:
+    inputs:
+      videoUrl:
+        description: "origin video url"
+        required: true
+      videoLength:
+        description: "Video length"
+        required: true
+        default: "7"
+      ratio:
+        description: "Video Ratio"
+        required: true
+        default: "16:9"
+jobs:
+  render:
+    name: Render video
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg xvfb aria2 cmake libglfw3-dev libgles2-mesa-dev
+      - run: pip install cmake torch diffusers transformers git+https://github.com/GentlemanHu/BrokenSource.git
+      - run: SHADERFLOW_BACKEND=headless xvfb-run depthflow input -i ${{ github.event.inputs.vidroUrl }} main --ar ${{ github.event.inputs.ratio }} -q 100 -t ${{ github.event.inputs.videoLength }} -r -o ./depth_video --format mp4
+      - uses: actions/upload-artifact@v2
+        with:
+          name: depth_video.mp4
+          path: ./depth_video.mp4
