@@ -27,7 +27,8 @@ jobs:
       - uses: actions/setup-node@main
       - run: sudo apt update
       - run: sudo apt install ffmpeg xvfb aria2 cmake libglfw3-dev libgles2-mesa-dev
-      - run: pip install cmake git+https://github.com/GentlemanHu/BrokenSource.git
+      - run: pip install cmake
+      - run: pip install -e .
       - run: pip install torch diffusers transformers
       - run: SHADERFLOW_BACKEND=headless xvfb-run depthflow input -i ${{ github.event.inputs.videoUrl }} main -w ${{ github.event.inputs.width }} -h ${{ github.event.inputs.height }} -q 100 -t ${{ github.event.inputs.videoLength }} -r -o ./depth_video --format mp4
       - uses: actions/upload-artifact@v2
