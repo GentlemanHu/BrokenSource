@@ -26,7 +26,7 @@ dependencies = [
     "numpy>=1.26.3",
     # Audio
     "pyfluidsynth>=1.3.3",
-    "samplerate@git+https://github.com/tuxu/python-samplerate.git@fix_cmake_dep",
+    "samplerate@git+https://github.com/tuxu/python-samplerate#egg=fix_cmake_dep",
     "soundcard>=0.4.3",
     "audioread>=3.0.1",
     # OpenGL
